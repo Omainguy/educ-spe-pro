@@ -1,9 +1,7 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Sparkles, ArrowRight, Clock, Star, FileText } from 'lucide-react';
 
-const HomePage: React.FC = () => {
+export default function HomePage() {
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <div className="relative overflow-hidden bg-indigo-600 rounded-3xl p-8 lg:p-12 text-white shadow-xl shadow-indigo-200">
@@ -12,8 +10,8 @@ const HomePage: React.FC = () => {
           <p className="text-indigo-100 text-lg mb-8 leading-relaxed">
             Consacrez plus de temps à l'humain et moins à la paperasse. Educ Spé Pro vous accompagne dans la rédaction de vos écrits professionnels avec justesse et rigueur.
           </p>
-          <Link 
-            to="/generator" 
+          <Link
+            href="/generator"
             className="inline-flex items-center gap-2 bg-white text-indigo-600 px-6 py-3 rounded-xl font-semibold hover:bg-indigo-50 transition-colors shadow-lg"
           >
             <Sparkles size={20} />
@@ -32,7 +30,7 @@ const HomePage: React.FC = () => {
           </div>
           <h3 className="font-bold text-slate-900 text-lg mb-1">Récents</h3>
           <p className="text-slate-500 text-sm mb-4">12 écrits générés ce mois-ci.</p>
-          <Link to="/generator" className="text-indigo-600 font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
+          <Link href="/generator" className="text-indigo-600 font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
             Voir l'historique <ArrowRight size={14} />
           </Link>
         </div>
@@ -43,7 +41,7 @@ const HomePage: React.FC = () => {
           </div>
           <h3 className="font-bold text-slate-900 text-lg mb-1">Favoris</h3>
           <p className="text-slate-500 text-sm mb-4">4 templates personnalisés.</p>
-          <Link to="/templates" className="text-indigo-600 font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
+          <Link href="/templates" className="text-indigo-600 font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
             Gérer mes templates <ArrowRight size={14} />
           </Link>
         </div>
@@ -54,7 +52,7 @@ const HomePage: React.FC = () => {
           </div>
           <h3 className="font-bold text-slate-900 text-lg mb-1">Styles</h3>
           <p className="text-slate-500 text-sm mb-4">3 profils de rédaction actifs.</p>
-          <Link to="/styles" className="text-indigo-600 font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
+          <Link href="/styles" className="text-indigo-600 font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
             Ajuster mon style <ArrowRight size={14} />
           </Link>
         </div>
@@ -81,9 +79,8 @@ const HomePage: React.FC = () => {
                   <p className="text-xs text-slate-500">{doc.date} • {doc.type}</p>
                 </div>
               </div>
-              <span className={`px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
-                doc.status === 'Terminé' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'
-              }`}>
+              <span className={`px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${doc.status === 'Terminé' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'
+                }`}>
                 {doc.status}
               </span>
             </div>
@@ -92,6 +89,4 @@ const HomePage: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default HomePage;
+}
